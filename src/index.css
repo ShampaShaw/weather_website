@@ -1,13 +1,152 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+	--section-overlay: rgba(0,0,0,0.6);
+	--background-overlay: rgba(0,0,0,0.6);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.app {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	
+
+}
+.video {
+	width: 100%;
+	height: 100vh;
+	position:absolute;
+	top: 0;
+	z-index: -1;
+	object-fit: cover;
+	background-color: rgba(0,0,0,7);
+}
+
+.overlay {
+	width: 100%;
+	height: 100vh;
+	background-color: var(--background-overlay);
+}
+
+.container {
+	max-width: 800px;
+	margin: auto;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	padding: 1rem;
+}
+
+.section {
+	width: 100%;
+	padding: 1rem;
+	border-radius: 0.4rem;
+	color:white;
+}
+
+.section__inputs, .section__temperature {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--section-overlay);
+}
+
+.section__inputs>input {
+	border: 0.8px solid white;
+	border-radius: 2rem;
+	background-color: transparent;
+	color: white;
+	padding: 0.5rem;
+	font-size: 20px;
+	font-weight: 200;
+}
+
+.section__inputs>input:focus{
+	outline: none;
+}
+
+.section__inputs>button {
+	padding: 10px 50px;
+	border: none;
+	border-radius: 2rem;
+	font-size: 20px;
+	font-weight: 500;
+	background-color: rgb(128, 128, 177);
+}
+
+.section__inputs>button:hover{
+	cursor: pointer;
+	background-color: rgb(177, 177, 250);
+}
+
+.icon {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.icon>h3 {
+	font-size: 15px;
+	font-weight: 200;
+	text-transform: capitalize;
+}
+
+.temperature>h1 {
+	font-size: 60px;
+}
+
+.section__inputs>button {
+    padding: 8px 40px;
+    font-size: 18px;
+}
+
+.temperature>h1 {
+    font-size: 40px;
+}
+
+@media screen and (max-width: 780px) { 
+	.container { padding: 0.5rem; }
+	.section__inputs>button {
+		padding: 8px 40px;
+		font-size: 18px;
+	}
+	
+	.temperature>h1 {
+		font-size: 40px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.container {
+		padding: 0.5rem;
+	}
+	.section__inputs>button {
+		padding: 6px 30px;
+		font-size: 16px;
+	}
+	.temperature>h1 {
+		font-size: 30px;
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.container {
+		padding: 0.4rem;
+	}
+	.section__inputs>button {
+		padding: 5px 25px;
+		font-size: 16px;
+	}
+	.temperature>h1 {
+		font-size: 25px;
+	}
 }
